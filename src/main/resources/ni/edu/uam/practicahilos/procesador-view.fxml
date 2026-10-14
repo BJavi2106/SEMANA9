@@ -1,0 +1,108 @@
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="ni.edu.uam.practicahilos.ProcesadorController"
+      alignment="CENTER"
+      spacing="16"
+      prefWidth="800"
+      prefHeight="650"
+      style="-fx-background-color: #f4f7fb;">
+
+    <padding>
+        <Insets top="24" right="28" bottom="24" left="28"/>
+    </padding>
+
+    <Label text="Monitor de procesamiento"
+           style="-fx-font-size: 24px; -fx-font-weight: bold;"/>
+
+    <Label fx:id="lblEstado"
+           text="Listo para iniciar los procesos."
+           wrapText="true"/>
+
+    <VBox spacing="10"
+          style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #d8e0ea; -fx-border-radius: 10;">
+        <padding>
+            <Insets top="16" right="16" bottom="16" left="16"/>
+        </padding>
+
+        <Label text="Procesamiento de clientes (100 registros)"
+               style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+        <ProgressBar fx:id="barraClientes"
+                     progress="0"
+                     maxWidth="Infinity"/>
+
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label fx:id="lblPorcentajeClientes"
+                   text="0%" prefWidth="45"/>
+            <Label fx:id="lblEstadoClientes"
+                   text="Esperando inicio"
+                   HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="btnIniciarClientes"
+                    text="Iniciar clientes"
+                    onAction="#iniciarClientes"/>
+
+            <Button fx:id="btnPausarClientes"
+                    text="Pausar clientes"
+                    onAction="#pausarClientes"
+                    disable="true"/>
+
+            <Button fx:id="btnReiniciarClientes"
+                    text="Reiniciar clientes"
+                    onAction="#reiniciarClientes"
+                    disable="true"/>
+        </HBox>
+    </VBox>
+
+    <VBox spacing="10"
+          style="-fx-background-color: white; -fx-background-radius: 10; -fx-border-color: #d8e0ea; -fx-border-radius: 10;">
+        <padding>
+            <Insets top="16" right="16" bottom="16" left="16"/>
+        </padding>
+
+        <Label text="Procesamiento de productos (50 registros)"
+               style="-fx-font-size: 16px; -fx-font-weight: bold;"/>
+
+        <ProgressBar fx:id="barraProductos"
+                     progress="0"
+                     maxWidth="Infinity"/>
+
+        <HBox alignment="CENTER_LEFT" spacing="12">
+            <Label fx:id="lblPorcentajeProductos"
+                   text="0%" prefWidth="45"/>
+            <Label fx:id="lblEstadoProductos"
+                   text="Esperando inicio"
+                   HBox.hgrow="ALWAYS"/>
+        </HBox>
+
+        <HBox alignment="CENTER" spacing="10">
+            <Button fx:id="btnIniciarProductos"
+                    text="Iniciar productos"
+                    onAction="#iniciarProductos"/>
+
+            <Button fx:id="btnPausarProductos"
+                    text="Pausar productos"
+                    onAction="#pausarProductos"
+                    disable="true"/>
+
+            <Button fx:id="btnReiniciarProductos"
+                    text="Reiniciar productos"
+                    onAction="#reiniciarProductos"
+                    disable="true"/>
+        </HBox>
+    </VBox>
+
+    <Label text="Cada proceso se controla de forma independiente."
+           wrapText="true"
+           style="-fx-text-fill: #526276; -fx-font-size: 12px;"/>
+
+</VBox>
